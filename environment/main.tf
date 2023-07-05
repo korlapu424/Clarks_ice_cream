@@ -1,9 +1,9 @@
 terraform {
-  provisioner "name" {
-  
+  required_providers {
+    aws = {
+        source = "hashicorp/aws"
+        version = "~> 4.0"
+    }
   }
-}
-
-resource "aws_vpc" "aws_vpc" {
-  
+  required_version = "~> 1.0"
 }
