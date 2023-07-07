@@ -10,4 +10,5 @@ terraform {
 
 module "vpc-module-cic" {
     source = "./terraform-modules/vpc-module-cic"   
+    cic_vpc_id = "10.0.0.0/16"
 }

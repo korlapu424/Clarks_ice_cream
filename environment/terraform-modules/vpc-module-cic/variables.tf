@@ -19,3 +19,7 @@ variable "azs" {
   
 }
 
+variable "cic_vpc_id" {
+    type = string
+  
+}
