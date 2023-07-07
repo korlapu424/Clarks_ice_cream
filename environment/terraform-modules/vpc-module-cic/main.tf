@@ -10,13 +10,13 @@ terraform {
 
 provider "aws" {
   
-    region = "us-east-1"
+    region = var.region
   
 }
 
 resource "aws_vpc" "vpc_clarks_ice_cream" {
     
-    cidr_block = "10.0.0.0/16"
+    cidr_block = var.cic_vpc_id
     tags = {
       Application_name = "Clarks_Ice_Cream"
       Create_by = "Terraform"
