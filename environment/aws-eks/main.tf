@@ -8,9 +8,15 @@ terraform {
   required_version = "~>1.2"
 }
 
+provider "aws" {
+  region = "var.region"
+  access_key = var.devops_access_key
+  secret_key = var.devops_secret_key
+  
+}
 
 module "cic_eks-cluster" {
-  source = "./terraform-modules/eks-module-cic"
+  source = "../terraform-modules/eks-module-cic"
   region = "us-east-1"
   application_name = "CIC-ECOM"
   Department_name = "ENGINEERING"
