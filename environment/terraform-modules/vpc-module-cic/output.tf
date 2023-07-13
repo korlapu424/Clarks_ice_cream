@@ -13,3 +13,7 @@ output "CIC_second_rt_ot" {
 output "CIC_gw_ot" {
   value = aws_internet_gateway.CIC_gw.id
 }
+
+output "cic_subnet_ids" {
+  value = "${data.aws_subnet.cic_subnet.*.id}"
+}

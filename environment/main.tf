@@ -17,24 +17,39 @@ module "vpc-module-cic" {
     azs = ["us-east-1a","us-east-1b","us-east-1c"]
 }
 
-module "sp-module-cic" {
-  source = "./terraform-modules/sg-module-cic"
-  sg_cidr = ["0.0.0.0/0"]
-  Sg_name = "CIC_SG_EC2"  
-  cic_vpc_id = "vpc-094732baea607a014"
-}
+#module "sp-module-cic" {
+#  source = "./terraform-modules/sg-module-cic"
+#  sg_cidr = ["0.0.0.0/0"]
+#  Sg_name = "CIC_SG_EC2"  
+#  cic_vpc_id = "vpc-094732baea607a014"
+#}
 
-module "cic_ec2-instance" {
-  source = "./terraform-modules/ec2-module-cic"
-  AMI_Name = "ami-06ca3ca175f37dd66"
-  instance_type = "t2.micro"
-  #cic_sg = ["sg-0e3123278ee840935"]
-  cic_sg = [module.sp-module-cic.Sg_id]
-  vpc_subnet = "subnet-01c445a5884143a00"
-  region = "us-east-1" 
-  EC2_name = "CIC_TEST_Docker_EC2"
+#module "cic_ec2-instance" {
+#  source = "./terraform-modules/ec2-module-cic"
+#  AMI_Name = "ami-06ca3ca175f37dd66"
+#  instance_type = "t2.micro"
+#  #cic_sg = ["sg-0e3123278ee840935"]
+#  cic_sg = [module.sp-module-cic.Sg_id]
+#  vpc_subnet = "subnet-01c445a5884143a00"
+#  region = "us-east-1" 
+#  EC2_name = "CIC_TEST_Docker_EC2"
+ #}
+
+
+
+
+module "cic_eks-cluster" {
+  source = "./terraform-modules/eks-module-cic"
+  region = "us-east-1"
+  application_name = "CIC-ECOM"
+  Department_name = "ENGINEERING"
+  subnet_ids = ["subnet-0258cd5337ee3ee92","subnet-0f050511475a0b3d1","subnet-087c3cb34a8b59a86"]
+  #subnet_ids = module.vpc-module-cic.cic_subnet_ids
+ 
+  instance_type = ["t2.micro"]
+  desired_size = 2
+  max_size = 3
+  min_size = 2
   
-  
+  #depends_on = [ module.vpc-module-cic ]
 }
-
-

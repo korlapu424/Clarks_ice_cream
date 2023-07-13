@@ -84,3 +84,13 @@ resource "aws_route_table_association" "CIC_second_rt_public_subset_asso" {
     route_table_id = aws_route_table.CIC_second_rt.id
   
 }
+
+
+data "aws_subnet_ids" "cic_subnet_ids" {
+  vpc_id = aws_vpc.vpc_clarks_ice_cream.id
+}
+data "aws_subnet" "cic_subnet" {
+  count = "${length(data.aws_subnet_ids.cic_subnet_ids.ids)}"
+  id    = "${tolist(data.aws_subnet_ids.cic_subnet_ids.ids)[count.index]}"
+  
+}
