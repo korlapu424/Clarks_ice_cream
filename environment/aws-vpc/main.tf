@@ -9,7 +9,7 @@ terraform {
 }
 
 module "vpc-module-cic" {
-    source = "./terraform-modules/vpc-module-cic"   
+    source = "../terraform-modules/vpc-module-cic"   
     cic_vpc_id = "10.0.0.0/16"
     region = "us-east-1"
     private_subnet_cidr = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24" ]
