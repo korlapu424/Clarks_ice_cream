@@ -28,10 +28,7 @@ output "CIC_gw_ot" {
 #    value = module.cic_ec2-instance.ec2_instance_public_ip
 #}
 
-output "Cluster_name" {
-  value = module.cic_eks-cluster.Cluster_name
-  
-}
+
 
 #output "subnet_id" {
 #  value = module.vpc-module-cic.cic_subnet_ids
