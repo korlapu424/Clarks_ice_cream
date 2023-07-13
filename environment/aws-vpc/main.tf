@@ -7,11 +7,9 @@ terraform {
   }
   required_version = "~>1.2"
 }
+
 provider "aws" {
-  region = var.region
-  access_key = var.access_key
-  secret_key = var.secret_key
-  
+  region = var.region  
 }
 
 module "vpc-module-cic" {
