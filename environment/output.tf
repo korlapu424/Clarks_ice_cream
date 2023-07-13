@@ -33,6 +33,6 @@ output "Cluster_name" {
   
 }
 
-output "subnet_id" {
-  value = module.vpc-module-cic.cic_subnet_ids
-}
+#output "subnet_id" {
+#  value = module.vpc-module-cic.cic_subnet_ids
+#}

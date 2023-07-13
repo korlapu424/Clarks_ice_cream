@@ -15,6 +15,7 @@ module "vpc-module-cic" {
     private_subnet_cidr = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24" ]
     public_subnet_cidr = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24" ]
     azs = ["us-east-1a","us-east-1b","us-east-1c"]
+ 
 }
 
 #module "sp-module-cic" {
@@ -43,7 +44,7 @@ module "cic_eks-cluster" {
   region = "us-east-1"
   application_name = "CIC-ECOM"
   Department_name = "ENGINEERING"
-  subnet_ids = ["subnet-0258cd5337ee3ee92","subnet-0f050511475a0b3d1","subnet-087c3cb34a8b59a86"]
+  subnet_ids = ["subnet-01103f6475be1dbd5","subnet-096f5c9c8c62b8fcf","subnet-092de6500894bdc8c"]
   #subnet_ids = module.vpc-module-cic.cic_subnet_ids
  
   instance_type = ["t2.micro"]
@@ -51,5 +52,4 @@ module "cic_eks-cluster" {
   max_size = 3
   min_size = 2
   
-  #depends_on = [ module.vpc-module-cic ]
 }
