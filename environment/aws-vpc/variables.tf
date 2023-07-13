@@ -1,15 +1,6 @@
-variable "region" {
-    type = string
-     
-}
+variable "region" {}
 
-variable "access_key" {
-    type = string
-  
-}
+variable "access_key" {}
 
 
-variable "secret_key" {
-    type = string
-  
-}
+variable "secret_key" {}
