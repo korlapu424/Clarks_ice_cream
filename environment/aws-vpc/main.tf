@@ -9,7 +9,9 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region  
+  region = var.cic_region
+  access_key = var.devops_access_key
+  secret_key = var.devops_secret_key
 }
 
 module "vpc-module-cic" {
