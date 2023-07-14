@@ -20,7 +20,7 @@ module "cic_eks-cluster" {
   region = "us-east-1"
   application_name = "CIC-ECOM"
   Department_name = "ENGINEERING"
-  subnet_ids = ["subnet-01103f6475be1dbd5","subnet-096f5c9c8c62b8fcf","subnet-092de6500894bdc8c"]
+  subnet_ids = [var.cic_subnet1,var.cic_subnet2,var.cic_subnet3]
   #subnet_ids = module.vpc-module-cic.cic_subnet_ids
  
   instance_type = ["t2.micro"]
