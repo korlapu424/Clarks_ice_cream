@@ -5,18 +5,6 @@
 #Date:          : 12th July,2023
 #Last modified  : Sunil Kumar Korlapu
 ###################################################################################################################################################################
-terraform {
-  required_providers {
-    aws ={
-        source = "hashicorp/aws"
-        version = "~> 4.0"
-    }
-  }
-}
-
-provider "aws" {
-    region = var.region  
-}
 
 resource "aws_iam_role" "IAM-ROLE-EKS" {
     name = "IAM-ROLE-${var.Department_name}-EKS-CLUSTER-${var.application_name}"
