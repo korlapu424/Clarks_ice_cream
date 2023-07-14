@@ -17,13 +17,13 @@ provider "aws" {
 
 module "cic_eks-cluster" {
   source = "../terraform-modules/eks-module-cic"
-  region = "us-east-1"
-  application_name = "CIC-ECOM"
-  Department_name = "ENGINEERING"
+  region = var.region
+  application_name = var.application_name
+  Department_name = var.Department_name
   subnet_ids = [var.cic_subnet1,var.cic_subnet2,var.cic_subnet3]
   #subnet_ids = module.vpc-module-cic.cic_subnet_ids
  
-  instance_type = ["t2.micro"]
+  instance_type = [var.instance_type]
   desired_size = 2
   max_size = 3
   min_size = 2
